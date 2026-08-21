@@ -42,6 +42,52 @@ npm install
 mongod
 ```
 
+### Docker Deployment
+
+```bash
+# Start with Docker Compose
+docker-compose up -d
+
+# View logs
+docker-compose logs -f loowid
+
+# Stop
+docker-compose down
+```
+
+The app will be available at `http://localhost:3000`
+
+#### Play with Docker
+
+For [Play with Docker](https://play-docker.com):
+
+1. Build the image locally first:
+   ```bash
+   docker build -t loowid:latest .
+   ```
+
+2. In Play with Docker, import the image or use this Dockerfile snippet:
+   ```dockerfile
+   FROM loowid:latest
+   ```
+
+3. Or paste this in the interactive terminal:
+   ```bash
+   git clone https://github.com/your-repo/loowid-remastered.git
+   cd loowid-remastered
+   docker build -t loowid .
+   docker run -d -p 3000:3000 -e MONGODB_URI=mongodb://localhost:27017/loowid loowid
+   ```
+
+Note: For Play with Docker, you'll need to use an external MongoDB or the built-in mongo service.
+
+For production, create a `.env` file with your configuration:
+```bash
+SESSION_SECRET=your-secure-random-string
+ADMIN_USERNAME=your-admin-user
+ADMIN_PASSWORD=your-secure-password
+```
+
 ### Development
 
 ```bash
