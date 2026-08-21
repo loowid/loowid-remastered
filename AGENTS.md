@@ -16,8 +16,8 @@ npm run test         # vitest run
 ## Architecture
 
 - **Client**: React 19 + Vite + Tailwind CSS v4 + Socket.IO client
-- **Server**: Express + Socket.IO + mediasoup + MongoDB/Mongoose
-- **WebRTC**: signaling via Socket.IO, media via mediasoup
+- **Server**: Express + Socket.IO + MongoDB/Mongoose
+- **WebRTC**: signaling via Socket.IO, native WebRTC peer connections
 
 ### Directory Structure
 ```

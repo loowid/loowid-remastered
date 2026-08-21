@@ -1,6 +1,6 @@
 # LooWID - WebRTC Video Conferencing
 
-A free, open-source video conferencing application built with WebRTC. LooWID enables real-time video calls, screen sharing, chat, and P2P file transfers directly in your browser.
+An evolution of [LooWID](https://github.com/loowid/loowid) - A free, open-source video conferencing application built with WebRTC. LooWID enables real-time video calls, screen sharing, chat, and P2P file transfers directly in your browser.
 
 ## Features
 
@@ -17,7 +17,7 @@ A free, open-source video conferencing application built with WebRTC. LooWID ena
 
 - **Frontend**: React 19, Vite, Tailwind CSS v4
 - **Backend**: Express, Socket.IO, MongoDB/Mongoose
-- **WebRTC**: mediasoup for SFU-based media handling
+- **WebRTC**: Socket.IO for signaling, native WebRTC for media
 - **Media Recording**: Web Workers + Canvas API
 
 ## Getting Started
@@ -87,7 +87,7 @@ COTURN_AUTH_SECRET=
 src/
 ├── client/                  # React frontend
 │   ├── components/         # UI components
-│   │   ├── VideoGrid       # Video layout (presenter/grid modes)
+│   │   ├── VideoGrid      # Video layout (presenter/grid modes)
 │   │   ├── ChatPanel      # Real-time chat
 │   │   ├── ParticipantsPanel # User management
 │   │   ├── RecordingPanel  # Local recording controls
@@ -97,7 +97,6 @@ src/
 │   └── utils/              # Helpers (hero names, etc.)
 └── server/                 # Express backend
     ├── signaling.ts         # Socket.IO WebRTC signaling
-    ├── streaming.ts         # Media streaming (RTMP)
     ├── routes/             # REST API endpoints
     ├── models/             # MongoDB/Mongoose models
     └── db/                 # Database connection
@@ -107,7 +106,7 @@ src/
 
 1. **Room Creation**: Owner creates a room via REST API, receives room ID and owner token
 2. **Signaling**: Socket.IO handles WebRTC signaling (offer/answer/ICE candidates)
-3. **Media**: Video/audio streams via mediasoup SFU
+3. **Media**: Native WebRTC peer connections for video/audio
 4. **Data Channels**: P2P file transfers and chat via WebRTC DataChannels
 5. **Recording**: Client-side recording using Canvas API + MediaRecorder
 
@@ -131,6 +130,12 @@ Room owners can:
 - Kick users
 - Manage waiting room
 - Configure room settings
+
+## Creators
+
+- **Juanjo Meroño**
+- **Alex Balleste**
+- **Edu Rey**
 
 ## File Structure
 
