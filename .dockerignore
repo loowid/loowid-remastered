@@ -1,0 +1,49 @@
+# Dependencies - don't copy node_modules to Docker build context
+node_modules/
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+AGENTS.md
+
+# Docker files (only needed for build context, not inside image)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Recordings (user-generated content)
+recordings/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OpenCode (dev tooling)
+.opencode/
